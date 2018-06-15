@@ -1,3 +1,5 @@
+# webdev-18s1-final-project
+Final Project for Webdev Summer 1 2018
 # WebdevFinalProject
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
