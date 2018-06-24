@@ -1,0 +1,9 @@
+span {
+	white-space: nowrap;
+}
+li {
+	cursor: pointer;
+}
+.fa {
+	cursor: pointer;
+}

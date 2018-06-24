@@ -1,0 +1,18 @@
+.form-control {
+	margin-bottom: 2px;
+}
+
+.btn {
+	margin-top: 10px;
+}
+
+#form-div {
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
+}
+
+form {
+	text-align: left;
+	display: inline-block;
+}

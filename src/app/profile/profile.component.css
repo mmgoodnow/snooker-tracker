@@ -1,0 +1,17 @@
+#form-div {
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
+	max-width: 600px;
+}
+
+form {
+	text-align: right;
+}
+
+.card-body {
+	background: linear-gradient(white, lightgray);
+}
+.card {
+	margin-bottom: 15px;
+}

@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+	<div class="container">
+		<a class="navbar-brand" routerLink="/home">SnookerTracker</a>
+		<div class="navbar-nav flex-grow-1"></div>
+		<ul class="navbar-nav flex-shrink-1 mr-auto">
+			<li class="nav-item">
+				<a class="nav-link" routerLink="/login">Login</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+<div class="container mt-sm-5" id="form-div">
+
+	<h1>Register</h1>
+
+	<form class="m-2">
+		<div class="form-group">
+			<label for="username">Username</label>
+			<input [(ngModel)]="username"
+				   placeholder="Username"
+				   id="username"
+				   name="username"
+				   class="form-control"/>
+		</div>
+		<div class="form-group">
+			<label for="password">Password</label>
+			<input [(ngModel)]="password"
+				   placeholder="Password"
+				   type="password"
+				   id="password"
+				   name="password"
+				   class="form-control"/>
+		</div>
+		<div class="form-group">
+			<label for="password2">Verify Password</label>
+			<input [(ngModel)]="password2"
+				   placeholder="Verify Password"
+				   type="password"
+				   id="password2"
+				   name="password2"
+				   class="form-control"/>
+		</div>
+		<button (click)="register()"
+				class="btn btn-primary btn-block">
+			Register
+		</button>
+	</form>
+</div>
+
