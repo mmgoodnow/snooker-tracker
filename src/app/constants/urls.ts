@@ -1,5 +1,5 @@
-//const NODE_URL = "https://webdev-18s1-node-mmgoodnow.herokuapp.com";
-const NODE_URL = "http://localhost:8080";
+const NODE_URL = "https://webdev-18s1-node-mmgoodnow.herokuapp.com";
+//const NODE_URL = "http://localhost:8080";
 
 export const PROFILE_SECTION_URL = NODE_URL + "/api/profile/section";
 export const COURSE_SECTION_URL = NODE_URL + "/api/course/COURSE_ID/section";
