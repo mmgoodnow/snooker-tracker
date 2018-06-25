@@ -1,6 +1,6 @@
 import { SUBSCRIPTION_URL } from "../constants/urls";
 
-export default class SubscriptionServiceClient {
+export class SubscriptionServiceClient {
 	subscribe(playerId: number) {
 		return fetch(SUBSCRIPTION_URL + playerId, {
 			credentials: "include",

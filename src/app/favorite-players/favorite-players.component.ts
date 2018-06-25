@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { UserServiceClient } from "../services/user.service.client";
-import SubscriptionServiceClient from "../services/subscription.service.client";
+import { SubscriptionServiceClient } from "../services/subscription.service.client";
 import { Player } from "../models/player.model.client";
 import { User } from "../models/user.model.client";
 import { PlayerServiceClient } from "../services/player.service.client";

@@ -15,8 +15,8 @@ import { RegisterComponent } from "./register/register.component";
 import { AdminComponent } from "./admin/admin.component";
 import { PlayerServiceClient } from "./services/player.service.client";
 import { PlayerViewerComponent } from "./player-viewer/player-viewer.component";
-import SubscriptionServiceClient from "./services/subscription.service.client";
 import { FavoritePlayersComponent } from "./favorite-players/favorite-players.component";
+import { SubscriptionServiceClient } from "./services/subscription.service.client";
 
 @NgModule({
 	declarations: [

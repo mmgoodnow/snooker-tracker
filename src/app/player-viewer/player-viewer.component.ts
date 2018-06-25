@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { PlayerServiceClient } from "../services/player.service.client";
 import { ActivatedRoute, Route, Router } from "@angular/router";
 import { Player } from "../models/player.model.client";
-import SubscriptionServiceClient from "../services/subscription.service.client";
+import { SubscriptionServiceClient } from "../services/subscription.service.client";
 
 @Component({
 	selector: "app-player-viewer",
