@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { PlayerServiceClient } from "../services/player.service.client";
-import { ActivatedRoute, Route } from "@angular/router";
+import { ActivatedRoute, Route, Router } from "@angular/router";
 import { Player } from "../models/player.model.client";
 import SubscriptionServiceClient from "../services/subscription.service.client";
 
@@ -13,7 +13,8 @@ export class PlayerViewerComponent implements OnInit {
 	constructor(
 		private service: PlayerServiceClient,
 		private route: ActivatedRoute,
-		private subscriptionService: SubscriptionServiceClient
+		private subscriptionService: SubscriptionServiceClient,
+		private router: Router
 	) {
 		this.checkIfSubscribed = this.checkIfSubscribed.bind(this);
 		this.loadPlayer = this.loadPlayer.bind(this);
@@ -33,7 +34,9 @@ export class PlayerViewerComponent implements OnInit {
 	subscribe() {
 		this.subscriptionService
 			.subscribe(this.player.ID)
-			.then(this.checkIfSubscribed);
+			.then(this.checkIfSubscribed, () => {
+				this.router.navigate(["login"]);
+			});
 	}
 
 	unsubscribe() {

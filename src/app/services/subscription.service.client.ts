@@ -5,7 +5,9 @@ export default class SubscriptionServiceClient {
 		return fetch(SUBSCRIPTION_URL + playerId, {
 			credentials: "include",
 			method: "post",
-		});
+		})
+			.then(response => response.json())
+			.catch(Promise.reject);
 	}
 
 	unsubscribe(playerId: number) {

@@ -35,35 +35,44 @@ module.exports = function(app) {
 			.then(function(subscriptions) {
 				res.send(
 					subscriptions.filter(
-						sub => sub.playerId == req.params.playerId
+						sub =>
+							String(sub.playerId) === String(req.params.playerId)
 					).length > 0
 				);
 			});
 	}
 
 	function subscribe(req, res) {
+		let userId;
+		if (req.params.userId) {
+			userId = req.params.userId;
+		} else if (req.session.currentUser) {
+			userId = req.session.currentUser._id;
+		} else {
+			return res.status(400).send("You must be logged in.");
+		}
 		const subscription = {
-			user: req.params.userId || req.session.currentUser._id,
+			user: userId,
 			playerId: req.params.playerId,
 		};
-		if (!subscription.user) {
-			res.status(400).send("You must be logged in.");
-			return;
-		}
 		subscriptionModel.subscribe(subscription).then(function(sub) {
 			res.json(sub);
 		});
 	}
 
 	function unsubscribe(req, res) {
+		let userId;
+		if (req.params.userId) {
+			userId = req.params.userId;
+		} else if (req.session.currentUser) {
+			userId = req.session.currentUser._id;
+		} else {
+			return res.status(400).send("You must be logged in.");
+		}
 		const subscription = {
-			user: req.params.userId || req.session.currentUser._id,
+			user: userId,
 			playerId: req.params.playerId,
 		};
-		if (!subscription.user) {
-			res.status(400).send("You must be logged in.");
-			return;
-		}
 		subscriptionModel.unsubscribe(subscription).then(function() {
 			res.sendStatus(200);
 		});
