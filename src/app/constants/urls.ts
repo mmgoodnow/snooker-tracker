@@ -1,4 +1,4 @@
-import { environment } from "../../environments/environment";
+import { environment } from "../../environments/environment.prod";
 const NODE_URL = environment.NODE_URL;
 
 export const USER_URL = NODE_URL + "/api/user/";
