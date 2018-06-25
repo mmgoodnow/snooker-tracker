@@ -13,7 +13,6 @@ module.exports = function(app) {
 
 	function login(req, res) {
 		const credentials = req.body;
-		console.log("before login");
 		userModel.findUserByCredentials(credentials).then(function(user) {
 			req.session["currentUser"] = user;
 			res.json(user);
