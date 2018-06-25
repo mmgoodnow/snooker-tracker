@@ -5,13 +5,13 @@ module.exports = function(app) {
 	app.get("/api/rankings", findRankings);
 
 	function findAllPlayers(req, res) {
-		fetch("http://api.snooker.org/?t=10&st=p&s=2018")
+		fetch("http://api.snooker.org/?t=10&st=player&s=2018")
 			.then(response => response.json())
 			.then(json => res.json(json));
 	}
 
 	function findPlayerById(req, res) {
-		fetch("http://api.snooker.org/?p=" + req.params.playerId)
+		fetch("http://api.snooker.org/?player=" + req.params.playerId)
 			.then(response => response.json())
 			.then(json => res.json(json[0]));
 	}

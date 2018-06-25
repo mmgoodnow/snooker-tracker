@@ -1,17 +1,24 @@
 <app-navbar></app-navbar>
 <div class="container">
-  <table class="table">
-    <thead>
-    <tr>
-      <td>Name</td>
-      <td>Turned Pro</td>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let p of players">
-		<td><a routerLink="/player/{{p.ID}}">{{p.FirstName + " " + p.LastName}}</a></td>
-      <td>{{p.FirstSeasonAsPro}}</td>
-    </tr>
-    </tbody>
-  </table>
+	<input title="Search" placeholder="Search" [(ngModel)]="search" class="form-control"/>
+	<table class="table">
+		<thead>
+		<tr>
+			<td>Name</td>
+			<td>Country</td>
+			<td>Born</td>
+			<td>Turned Pro</td>
+		</tr>
+		</thead>
+		<tbody>
+		<ng-container *ngFor="let player of players">
+			<tr *ngIf="isRelevant(player)">
+				<td><a routerLink="/player/{{player.ID}}">{{player.FirstName + " " + player.LastName}}</a></td>
+				<td>{{player.Nationality}}</td>
+				<td>{{player.Born}}</td>
+				<td>{{player.FirstSeasonAsPro}}</td>
+			</tr>
+		</ng-container>
+		</tbody>
+	</table>
 </div>

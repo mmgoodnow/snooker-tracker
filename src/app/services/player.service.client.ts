@@ -2,8 +2,12 @@ import { PLAYER_URL, RANKINGS_URL } from "../constants/urls";
 import { Player } from "../models/player.model.client";
 
 export class PlayerServiceClient {
+	players: Promise<Player[]>;
+	constructor() {
+		this.players = fetch(PLAYER_URL).then(response => response.json());
+	}
 	findAllPlayers() {
-		return fetch(PLAYER_URL).then(response => response.json());
+		return this.players;
 	}
 
 	findPlayerById(playerId: number) {

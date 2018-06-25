@@ -8,8 +8,10 @@
 	<br/>
 	<b>Turned Pro:</b> {{player.FirstSeasonAsPro}}
 	<br/>
-	<b>Twitter: </b> <a [href]="'https://twitter.com/' + player.Twitter">@{{player.Twitter}}</a>
-	<br/>
+	<div *ngIf="player.Twitter">
+		<b>Twitter: </b> <a [href]="'https://twitter.com/' + player.Twitter">@{{player.Twitter}}</a>
+		<br/>
+	</div>
 	<b>Country: </b> {{player.Nationality}}
 	<br/>
 	<button *ngIf="!isSubscribed"

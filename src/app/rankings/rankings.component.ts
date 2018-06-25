@@ -11,7 +11,7 @@ export class RankingsComponent implements OnInit {
 	players;
 
 	retrieveResults() {
-		return fetch("http://api.snooker.org/?t=10&st=p&s=2018").then(
+		return fetch("http://api.snooker.org/?t=10&st=player&s=2018").then(
 			response => response.json()
 		);
 	}

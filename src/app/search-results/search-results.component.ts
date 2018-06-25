@@ -12,9 +12,22 @@ export class SearchResultsComponent implements OnInit {
 	constructor(private router: Router, private service: PlayerServiceClient) {}
 
 	players: Player[] = [];
+	search: string = "";
 
 	retrieveResults() {
 		this.service.findAllPlayers().then(json => (this.players = json));
+	}
+
+	isRelevant(player: Player): boolean {
+		for (const key of Object.keys(player)) {
+			if (
+				String(player[key])
+					.toLowerCase()
+					.includes(this.search.toLowerCase())
+			)
+				return true;
+		}
+		return false;
 	}
 
 	ngOnInit() {
