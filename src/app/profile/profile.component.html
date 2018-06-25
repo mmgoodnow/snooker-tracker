@@ -1,74 +1,66 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
-	<div class="container">
-		<a class="navbar-brand" routerLink="/home">WhiteBoard</a>
-		<div class="navbar-nav flex-grow-1"></div>
-		<ul class="navbar-nav mr-auto">
-			<li *ngIf="user.username === 'admin'" class="nav-item">
-				<a class="nav-link" routerLink="/admin">Administration</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" routerLink="/logout">Logout</a>
-			</li>
-		</ul>
-	</div>
-</nav>
-<div *ngIf="user" class="row">
-	<div class="container mt-sm-5 col-md-6" id="form-div">
-		<h1>Profile</h1>
+<app-navbar></app-navbar>
+<div *ngIf="user" class="container">
+	<div class="row">
+		<div class="mt-sm-5 col-md-6" id="form-div">
+			<h1>Profile</h1>
 
-		<form class="m-2">
-			<div class="form-group row">
-				<label for="username" class="col-form-label col-sm-3">Username</label>
-				<input [(ngModel)]="user.username"
-					   placeholder="username"
-					   id="username"
-					   name="username"
-					   class="form-control col-sm-9"/>
-			</div>
-			<div class="form-group row">
-				<label for="password" class="col-form-label col-sm-3">Password</label>
-				<input [(ngModel)]="user.password"
-					   placeholder="password"
-					   type="password"
-					   id="password"
-					   name="password"
-					   class="form-control col-sm-9"/>
-			</div>
-			<div class="form-group row">
-				<label for="firstName" class="col-form-label col-sm-3">First Name</label>
-				<input [(ngModel)]="user.firstName"
-					   placeholder="first name"
-					   id="firstName"
-					   name="firstName"
-					   class="form-control col-sm-9"/>
-			</div>
-			<div class="form-group row">
-				<label for="lastName" class="col-form-label col-sm-3">Last Name</label>
-				<input [(ngModel)]="user.lastName"
-					   placeholder="last name"
-					   id="lastName"
-					   name="lastName"
-					   class="form-control col-sm-9"/>
-			</div>
-			<div class="form-group row">
-				<label for="email" class="col-form-label col-sm-3">Email Address</label>
-				<input [(ngModel)]="user.email"
-					   placeholder="email"
-					   id="email"
-					   name="email"
-					   class="form-control col-sm-9"/>
-			</div>
+			<form class="m-2">
+				<div class="form-group row">
+					<label for="username" class="col-form-label col-sm-3">Username</label>
+					<input [(ngModel)]="user.username"
+						   placeholder="username"
+						   id="username"
+						   name="username"
+						   class="form-control col-sm-9"/>
+				</div>
+				<div class="form-group row">
+					<label for="password" class="col-form-label col-sm-3">Password</label>
+					<input [(ngModel)]="user.password"
+						   placeholder="password"
+						   type="password"
+						   id="password"
+						   name="password"
+						   class="form-control col-sm-9"/>
+				</div>
+				<div class="form-group row">
+					<label for="firstName" class="col-form-label col-sm-3">First Name</label>
+					<input [(ngModel)]="user.firstName"
+						   placeholder="first name"
+						   id="firstName"
+						   name="firstName"
+						   class="form-control col-sm-9"/>
+				</div>
+				<div class="form-group row">
+					<label for="lastName" class="col-form-label col-sm-3">Last Name</label>
+					<input [(ngModel)]="user.lastName"
+						   placeholder="last name"
+						   id="lastName"
+						   name="lastName"
+						   class="form-control col-sm-9"/>
+				</div>
+				<div class="form-group row">
+					<label for="email" class="col-form-label col-sm-3">Email Address</label>
+					<input [(ngModel)]="user.email"
+						   placeholder="email"
+						   id="email"
+						   name="email"
+						   class="form-control col-sm-9"/>
+				</div>
 
-			<button (click)="update()"
-					class="btn btn-success btn-block"
-					name="update">
-				Update User
-			</button>
-			<button (click)="delete()"
-					class="btn btn-danger btn-block"
-					name="delete">
-				Delete User
-			</button>
-		</form>
+				<button (click)="update()"
+						class="btn btn-success btn-block"
+						name="update">
+					Update User
+				</button>
+				<button (click)="delete()"
+						class="btn btn-danger btn-block"
+						name="delete">
+					Delete User
+				</button>
+			</form>
+		</div>
+		<div class="mt-sm-5 col-md-6">
+			<app-favorite-players></app-favorite-players>
+		</div>
 	</div>
 </div>

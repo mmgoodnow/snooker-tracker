@@ -1,0 +1,10 @@
+<div *ngIf="players" class="text-center">
+	<h1>Favorite Players</h1>
+	<div class="list-group">
+		<a *ngFor="let player of players"
+			class="list-group-item"
+			routerLink="/player/{{player.ID}}">
+			{{player.FirstName}} {{player.LastName}}
+		</a>
+	</div>
+</div>

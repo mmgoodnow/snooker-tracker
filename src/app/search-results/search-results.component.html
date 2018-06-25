@@ -3,15 +3,13 @@
   <table class="table">
     <thead>
     <tr>
-      <td>Player ID</td>
       <td>Name</td>
       <td>Turned Pro</td>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let p of players">
-      <td>{{p.ID}}</td>
-      <td>{{p.FirstName + " " + p.LastName}}</td>
+		<td><a routerLink="/player/{{p.ID}}">{{p.FirstName + " " + p.LastName}}</a></td>
       <td>{{p.FirstSeasonAsPro}}</td>
     </tr>
     </tbody>

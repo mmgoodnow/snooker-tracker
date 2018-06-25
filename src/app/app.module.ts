@@ -13,6 +13,10 @@ import { LoginComponent } from "./login/login.component";
 import { ProfileComponent } from "./profile/profile.component";
 import { RegisterComponent } from "./register/register.component";
 import { AdminComponent } from "./admin/admin.component";
+import { PlayerServiceClient } from "./services/player.service.client";
+import { PlayerViewerComponent } from "./player-viewer/player-viewer.component";
+import SubscriptionServiceClient from "./services/subscription.service.client";
+import { FavoritePlayersComponent } from "./favorite-players/favorite-players.component";
 
 @NgModule({
 	declarations: [
@@ -25,9 +29,15 @@ import { AdminComponent } from "./admin/admin.component";
 		ProfileComponent,
 		RegisterComponent,
 		AdminComponent,
+		PlayerViewerComponent,
+		FavoritePlayersComponent,
 	],
 	imports: [BrowserModule, FormsModule, routing],
-	providers: [UserServiceClient],
+	providers: [
+		UserServiceClient,
+		PlayerServiceClient,
+		SubscriptionServiceClient,
+	],
 	bootstrap: [AppComponent],
 })
 export class AppModule {}

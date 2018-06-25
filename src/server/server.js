@@ -36,9 +36,9 @@ module.exports = function(app) {
 	);
 
 	const userService = require("./services/user.service.server");
-	const sectionService = require("./services/section.service.server");
-	const enrollmentService = require("./services/enrollment.service.server");
+	const playerService = require("./services/player.service.server");
+	const subscriptionService = require("./services/subscription.service.server");
 	userService(app);
-	sectionService(app);
-	enrollmentService(app);
+	playerService(app);
+	subscriptionService(app);
 };

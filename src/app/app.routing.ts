@@ -5,6 +5,7 @@ import { LogoutComponent } from "./logout/logout.component";
 import { RegisterComponent } from "./register/register.component";
 import { ProfileComponent } from "./profile/profile.component";
 import { AdminComponent } from "./admin/admin.component";
+import { PlayerViewerComponent } from "./player-viewer/player-viewer.component";
 const appRoutes: Routes = [
 	{
 		path: "",
@@ -34,6 +35,10 @@ const appRoutes: Routes = [
 	{
 		path: "admin",
 		component: AdminComponent,
+	},
+	{
+		path: "player/:playerId",
+		component: PlayerViewerComponent,
 	},
 	{ path: "**", component: SearchResultsComponent }, // last
 ];

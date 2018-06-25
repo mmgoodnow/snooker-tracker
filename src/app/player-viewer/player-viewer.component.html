@@ -1,0 +1,25 @@
+<app-navbar></app-navbar>
+<div *ngIf="player"
+	 class="container mt-sm-5 text-center">
+	<h1>{{player.FirstName + " " + player.LastName}}</h1>
+	<img [src]="player.Photo">
+	<br/>
+	<b>Date of Birth: </b> {{player.Born}}
+	<br/>
+	<b>Turned Pro:</b> {{player.FirstSeasonAsPro}}
+	<br/>
+	<b>Twitter: </b> <a [href]="'https://twitter.com/' + player.Twitter">@{{player.Twitter}}</a>
+	<br/>
+	<b>Country: </b> {{player.Nationality}}
+	<br/>
+	<button *ngIf="!isSubscribed"
+		class="btn btn-primary"
+		(click)="subscribe()">
+		Subscribe
+	</button>
+	<button *ngIf="isSubscribed"
+		class="btn btn-primary"
+		(click)="unsubscribe()">
+		Unsubscribe
+	</button>
+</div>

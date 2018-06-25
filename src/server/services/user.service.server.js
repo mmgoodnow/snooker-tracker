@@ -16,8 +16,6 @@ module.exports = function(app) {
 		console.log("before login");
 		userModel.findUserByCredentials(credentials).then(function(user) {
 			req.session["currentUser"] = user;
-			console.log("after login, session :");
-			console.log(req.session);
 			res.json(user);
 		});
 	}
@@ -36,13 +34,11 @@ module.exports = function(app) {
 
 	function profile(req, res) {
 		const user = req.session["currentUser"];
-		console.log("profile, session :");
-		console.log(req.session);
 		if (!user) {
 			res.sendStatus(400);
 		} else {
-			userModel.findUserById(user._id).then(function(user) {
-				res.json(user);
+			userModel.findUserById(user._id).then(function(newUser) {
+				res.json(newUser);
 			});
 		}
 	}
