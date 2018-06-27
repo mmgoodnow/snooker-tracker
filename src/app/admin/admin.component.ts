@@ -12,9 +12,28 @@ export class AdminComponent implements OnInit {
 	constructor(
 		private userService: UserServiceClient,
 		private router: Router
-	) {}
+	) {
+		this.loadUsers = this.loadUsers.bind(this);
+	}
 
 	username: string;
+	users: User[];
+	newUser = new User();
+
+	loadUsers() {
+		this.userService
+			.findAllUsers()
+			.then(users => (this.users = users))
+			.then(() => console.log(this.users));
+	}
+
+	deleteUser(id: string) {
+		this.userService.deleteUser(id).then(this.loadUsers);
+	}
+
+	createUser() {
+		this.userService.createUser(this.newUser).then(this.loadUsers);
+	}
 
 	ngOnInit() {
 		this.userService
@@ -30,5 +49,6 @@ export class AdminComponent implements OnInit {
 				alert("You must be admin to access this page.");
 				this.router.navigate(["login"]);
 			});
+		this.loadUsers();
 	}
 }

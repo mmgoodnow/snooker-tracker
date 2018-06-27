@@ -24,6 +24,7 @@ import { EventComponent } from "./event/event.component";
 import { PlayerListComponent } from "./player-list/player-list.component";
 import { MatchListComponent } from "./match-list/match-list.component";
 import { EventListComponent } from "./event-list/event-list.component";
+import { AngularFontAwesomeModule } from "angular-font-awesome";
 
 @NgModule({
 	declarations: [
@@ -44,7 +45,7 @@ import { EventListComponent } from "./event-list/event-list.component";
 		MatchListComponent,
 		EventListComponent,
 	],
-	imports: [BrowserModule, FormsModule, routing],
+	imports: [BrowserModule, FormsModule, routing, AngularFontAwesomeModule],
 	providers: [
 		UserServiceClient,
 		PlayerServiceClient,

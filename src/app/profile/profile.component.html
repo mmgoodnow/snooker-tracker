@@ -51,7 +51,8 @@
 						name="update">
 					Update User
 				</button>
-				<button (click)="delete()"
+				<button *ngIf="user.username != 'admin'"
+						(click)="delete()"
 						class="btn btn-danger btn-block"
 						name="delete">
 					Delete User

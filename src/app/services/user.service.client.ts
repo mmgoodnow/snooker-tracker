@@ -81,4 +81,10 @@ export class UserServiceClient {
 			},
 		});
 	}
+
+	deleteUser(id: string) {
+		return fetch(USER_URL + id, {
+			method: "delete",
+		});
+	}
 }

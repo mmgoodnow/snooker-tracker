@@ -2,9 +2,11 @@ module.exports = function(app) {
 	app.get("/api/user", findAllUsers);
 	app.post("/api/user", createUser);
 	app.get("/api/user/:userId", findUserById);
+	app.delete("/api/user/:userId", deleteUser);
+
 	app.get("/api/profile", profile);
 	app.put("/api/profile", updateUser);
-	app.delete("/api/profile", deleteUser);
+	app.delete("/api/profile", deleteCurrentUser);
 	app.post("/api/register", register);
 	app.post("/api/login", login);
 	app.post("/api/logout", logout);
@@ -77,7 +79,13 @@ module.exports = function(app) {
 
 	function deleteUser(req, res) {
 		userModel
-			.deleteUserById(req.session["currentUser"]._id)
+			.deleteUserById(req.params.userId)
+			.then(res.send(req.params.userId));
+	}
+
+	function deleteCurrentUser(req, res) {
+		userModel
+			.deleteUserById(req.session.currentUser._id)
 			.then(logout(req, res));
 	}
 

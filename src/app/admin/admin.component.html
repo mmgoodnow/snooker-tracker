@@ -1,3 +1,34 @@
 <div class="container">
-	<p>admin works!</p>
+	<h1 class="text-center">User Administration</h1>
+	<table class="table">
+		<thead>
+		<tr>
+			<th>Username</th>
+			<th>Password</th>
+			<th>Email</th>
+			<th>First name</th>
+			<th>Last name</th>
+			<th>&nbsp;</th>
+		</tr>
+		<tr>
+			<th><input class="form-control" title="newUsername" placeholder="username" [(ngModel)]="newUser.username"/></th>
+			<th><input class="form-control" title="newUsername" placeholder="password" [(ngModel)]="newUser.password"/></th>
+			<th><input class="form-control" title="newEmail" placeholder="email" type="email" [(ngModel)]="newUser.email"/></th>
+			<th><input class="form-control" title="newFirstName" placeholder="first name" [(ngModel)]="newUser.firstName"/></th>
+			<th><input class="form-control" title="newLastName" placeholder="last name" [(ngModel)]="newUser.lastName"/></th>
+			<th><fa name="plus" (click)="createUser()"></fa></th>
+
+		</tr>
+		</thead>
+		<tbody>
+		<tr *ngFor="let user of users">
+			<td>{{user.username}}</td>
+			<td><input class="form-control-plaintext" readonly type="password" title="password" [value]="user.password"/></td>
+			<td>{{user.email}}</td>
+			<td>{{user.firstName}}</td>
+			<td>{{user.lastName}}</td>
+			<td><fa name="trash" (click)="deleteUser(user._id)"></fa></td>
+		</tr>
+		</tbody>
+	</table>
 </div>
