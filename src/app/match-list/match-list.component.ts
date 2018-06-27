@@ -12,7 +12,7 @@ export class MatchListComponent implements OnInit {
 		this.populateNames = this.populateNames.bind(this);
 	}
 
-	private _matches: Match[] = [];
+	_matches: Match[] = [];
 
 	@Input()
 	set matches(matches: Match[]) {
