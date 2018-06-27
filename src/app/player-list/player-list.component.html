@@ -1,0 +1,7 @@
+<div class="list-group">
+	<ng-container *ngFor="let player of players">
+		<a class="list-group-item" routerLink="/player/{{player.ID}}">
+			{{player.FirstName + " " + player.LastName}}
+		</a>
+	</ng-container>
+</div>

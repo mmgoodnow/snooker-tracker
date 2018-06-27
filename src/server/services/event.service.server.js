@@ -7,7 +7,7 @@ module.exports = function(app) {
 	function findEventById(req, res) {
 		return fetch("http://api.snooker.org/?e=" + req.params.eventId)
 			.then(response => response.json())
-			.then(json => res.json(json));
+			.then(json => res.json(json[0]));
 	}
 
 	function findEventsForSeason(req, res) {

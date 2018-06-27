@@ -13,7 +13,7 @@ export class Player {
 	BioPage: string;
 	Born: string;
 	Twitter: string;
-	SurnameFirst: false;
+	SurnameFirst: boolean;
 	License: string;
 	Club: string;
 	URL: string;

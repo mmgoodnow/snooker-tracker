@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { PlayerServiceClient } from "../services/player.service.client";
 
 @Component({
 	selector: "app-rankings",
@@ -6,17 +7,30 @@ import { Component, OnInit } from "@angular/core";
 	styleUrls: ["./rankings.component.css"],
 })
 export class RankingsComponent implements OnInit {
-	constructor() {}
+	constructor(private service: PlayerServiceClient) {
+		this.populateName = this.populateName.bind(this);
+	}
 
-	players;
+	rankings;
 
 	retrieveResults() {
-		return fetch("http://api.snooker.org/?t=10&st=player&s=2018").then(
-			response => response.json()
-		);
+		return this.service
+			.findRankings()
+			.then(json => (this.rankings = json))
+			.then(() => this.rankings.map(this.populateName));
+	}
+
+	populateName(r) {
+		this.service
+			.findAllPlayers()
+			.then(results => results.filter(p => p.ID == r.PlayerID)[0])
+			.then(p => {
+				r.FirstName = p.FirstName;
+				r.LastName = p.LastName;
+			});
 	}
 
 	ngOnInit() {
-		this.retrieveResults().then(json => (this.players = json));
+		this.retrieveResults();
 	}
 }

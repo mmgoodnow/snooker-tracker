@@ -33,7 +33,7 @@ export class RegisterComponent implements OnInit {
 				password: this.password,
 			})
 			.then(response => {
-				if (response.ok) return this.router.navigate(["profile"]);
+				if (response.ok) return location.assign("profile");
 				else response.text().then(alert);
 			});
 	}

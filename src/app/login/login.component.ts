@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
 			.then(response => response.json())
 			.then(user => {
 				if (user) {
-					this.router.navigate(["profile"]);
+					location.assign("home");
 				} else {
 					this.password = "";
 					alert("Invalid credentials. Try again.");

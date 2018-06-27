@@ -4,8 +4,11 @@ import {
 	MATCH_URL,
 	PLAYER_MATCH_URL,
 } from "../constants/urls";
+import { Match } from "../models/match.model.client";
 
 export class MatchServiceClient {
+	constructor() {}
+
 	findAllMatchesInEvent(eventId: number) {
 		return fetch(EVENT_MATCH_URL.replace(":eventId", String(eventId))).then(
 			response => response.json()

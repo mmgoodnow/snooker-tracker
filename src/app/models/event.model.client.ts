@@ -1,8 +1,8 @@
 export class Event {
 	ID: number;
 	Name: string;
-	StartDate: string;
-	EndDate: string;
+	StartDate: Date;
+	EndDate: Date;
 	Sponsor: string;
 	Season: number;
 	Type: string;

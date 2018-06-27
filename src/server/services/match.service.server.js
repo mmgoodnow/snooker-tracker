@@ -13,7 +13,7 @@ module.exports = function(app) {
 			}&n=${req.params.matchId}`
 		)
 			.then(response => response.json())
-			.then(json => res.json(json));
+			.then(json => res.json(json[0]));
 	}
 
 	function findMatchesInEvent(req, res) {
@@ -26,7 +26,7 @@ module.exports = function(app) {
 		return fetch("http://api.snooker.org/?t=6&e=" + req.params.eventId)
 			.then(response => response.json())
 			.then(matches =>
-				matches.filter(m => m.Round === req.params.roundId)
+				matches.filter(m => m.Round === Number(req.params.roundId))
 			)
 			.then(json => res.json(json));
 	}

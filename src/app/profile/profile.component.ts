@@ -21,12 +21,10 @@ export class ProfileComponent implements OnInit {
 	}
 
 	delete(): void {
-		this.service
-			.deleteCurrentUser()
-			.then(() => this.router.navigate(["login"]));
+		this.service.deleteCurrentUser().then(() => location.assign("profile"));
 	}
 
 	ngOnInit() {
-		this.refetch().catch(() => this.router.navigate(["login"]));
+		this.refetch().catch(() => location.assign("login"));
 	}
 }

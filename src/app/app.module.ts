@@ -19,6 +19,10 @@ import { FavoritePlayersComponent } from "./favorite-players/favorite-players.co
 import { SubscriptionServiceClient } from "./services/subscription.service.client";
 import { EventServiceClient } from "./services/event.service.client";
 import { MatchServiceClient } from "./services/match.service.client";
+import { HomeComponent } from "./home/home.component";
+import { EventComponent } from "./event/event.component";
+import { PlayerListComponent } from "./player-list/player-list.component";
+import { MatchListComponent } from "./match-list/match-list.component";
 
 @NgModule({
 	declarations: [
@@ -33,6 +37,10 @@ import { MatchServiceClient } from "./services/match.service.client";
 		AdminComponent,
 		PlayerViewerComponent,
 		FavoritePlayersComponent,
+		HomeComponent,
+		EventComponent,
+		PlayerListComponent,
+		MatchListComponent,
 	],
 	imports: [BrowserModule, FormsModule, routing],
 	providers: [
