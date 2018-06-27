@@ -39,9 +39,11 @@ module.exports = function(app) {
 	const playerService = require("./services/player.service.server");
 	const subscriptionService = require("./services/subscription.service.server");
 	const eventService = require("./services/event.service.server");
+	const matchService = require("./services/match.service.server");
 
 	userService(app);
 	playerService(app);
 	subscriptionService(app);
 	eventService(app);
+	matchService(app);
 };

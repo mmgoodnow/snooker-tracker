@@ -13,3 +13,8 @@ export const SUBSCRIPTION_URL = NODE_URL + "/api/subscription/";
 export const EVENT_PLAYERS_URL = NODE_URL + "/api/event/:eventId/player/";
 export const EVENT_URL = NODE_URL + "/api/event/";
 export const EVENT_ROUNDS_URL = NODE_URL + "/api/event/:eventId/round";
+
+export const EVENT_MATCH_URL = NODE_URL + "/api/event/:eventId/match/";
+export const MATCH_URL = NODE_URL + "/api/event/:eventId/round/:roundId/match/";
+export const MATCH_LIVE_URL = NODE_URL + "/api/match/live/";
+export const PLAYER_MATCH_URL = NODE_URL + "/api/player/:playerId/match/";

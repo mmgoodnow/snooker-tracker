@@ -6,7 +6,10 @@ module.exports = function(app) {
 	app.get("/api/event/:eventId/player", findAllPlayersInEvent);
 
 	function findAllPlayers(req, res) {
-		fetch("http://api.snooker.org/?t=10&st=player&s=2018")
+		fetch(
+			`http://api.snooker.org/?t=10&st=player&s=${req.query.year ||
+				new Date().getFullYear()}`
+		)
 			.then(response => response.json())
 			.then(json => res.json(json));
 	}
@@ -18,7 +21,10 @@ module.exports = function(app) {
 	}
 
 	function findRankings(req, res) {
-		fetch("http://api.snooker.org/?rt=MoneyRankings&s=2018")
+		fetch(
+			`http://api.snooker.org/?rt=MoneyRankings&s=${req.query.year ||
+				new Date().getFullYear()}`
+		)
 			.then(response => response.json())
 			.then(json => res.json(json));
 	}
