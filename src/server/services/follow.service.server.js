@@ -21,23 +21,11 @@ module.exports = function(app) {
 	}
 
 	function findFollowing(req, res) {
-		let follower;
-		if (req.session.currentUser) {
-			follower = req.session.currentUser._id;
-		} else {
-			return res.send(false);
-		}
-		followModel.findFollowing(follower).then(doc => res.json(doc));
+		followModel.findFollowing(req.params.userId).then(doc => res.json(doc));
 	}
 
 	function findFollowers(req, res) {
-		let followee;
-		if (req.session.currentUser) {
-			followee = req.session.currentUser._id;
-		} else {
-			return res.send(false);
-		}
-		followModel.findFollowers(followee).then(doc => res.json(doc));
+		followModel.findFollowers(req.params.userId).then(doc => res.json(doc));
 	}
 
 	function follow(req, res) {

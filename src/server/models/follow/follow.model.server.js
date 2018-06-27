@@ -11,11 +11,17 @@ function unfollow(sub) {
 }
 
 function findFollowing(follower) {
-	return followModel.find({ follower: follower });
+	return followModel
+		.find({ follower: follower })
+		.populate("followee")
+		.exec();
 }
 
 function findFollowers(followee) {
-	return followModel.find({ followee: followee });
+	return followModel
+		.find({ followee: followee })
+		.populate("follower")
+		.exec();
 }
 
 function isFollowing(sub) {

@@ -18,3 +18,7 @@ export const EVENT_MATCH_URL = NODE_URL + "/api/event/:eventId/match/";
 export const MATCH_URL = NODE_URL + "/api/event/:eventId/round/:roundId/match/";
 export const MATCH_LIVE_URL = NODE_URL + "/api/match/live/";
 export const PLAYER_MATCH_URL = NODE_URL + "/api/player/:playerId/match/";
+
+export const FOLLOWING_URL = NODE_URL + "/api/user/:userId/following/";
+export const FOLLOWERS_URL = NODE_URL + "/api/user/:userId/followers/";
+export const FOLLOW_URL = NODE_URL + "/api/user/:userId/follow/";

@@ -25,6 +25,8 @@ import { PlayerListComponent } from "./player-list/player-list.component";
 import { MatchListComponent } from "./match-list/match-list.component";
 import { EventListComponent } from "./event-list/event-list.component";
 import { AngularFontAwesomeModule } from "angular-font-awesome";
+import { UserComponent } from "./user/user.component";
+import { FollowServiceClient } from "./services/follow.service.client";
 
 @NgModule({
 	declarations: [
@@ -44,6 +46,7 @@ import { AngularFontAwesomeModule } from "angular-font-awesome";
 		PlayerListComponent,
 		MatchListComponent,
 		EventListComponent,
+		UserComponent,
 	],
 	imports: [BrowserModule, FormsModule, routing, AngularFontAwesomeModule],
 	providers: [
@@ -52,6 +55,7 @@ import { AngularFontAwesomeModule } from "angular-font-awesome";
 		SubscriptionServiceClient,
 		EventServiceClient,
 		MatchServiceClient,
+		FollowServiceClient,
 	],
 	bootstrap: [AppComponent],
 })
