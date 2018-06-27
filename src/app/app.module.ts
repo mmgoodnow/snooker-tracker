@@ -18,6 +18,7 @@ import { PlayerViewerComponent } from "./player-viewer/player-viewer.component";
 import { FavoritePlayersComponent } from "./favorite-players/favorite-players.component";
 import { SubscriptionServiceClient } from "./services/subscription.service.client";
 import { EventServiceClient } from "./services/event.service.client";
+import { MatchServiceClient } from "./services/match.service.client";
 
 @NgModule({
 	declarations: [
@@ -39,6 +40,7 @@ import { EventServiceClient } from "./services/event.service.client";
 		PlayerServiceClient,
 		SubscriptionServiceClient,
 		EventServiceClient,
+		MatchServiceClient,
 	],
 	bootstrap: [AppComponent],
 })
