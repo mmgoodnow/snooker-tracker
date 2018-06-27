@@ -1,4 +1,4 @@
-import { PLAYER_URL, RANKINGS_URL } from "../constants/urls";
+import { EVENT_PLAYERS_URL, PLAYER_URL, RANKINGS_URL } from "../constants/urls";
 import { Player } from "../models/player.model.client";
 
 export class PlayerServiceClient {
@@ -16,5 +16,11 @@ export class PlayerServiceClient {
 
 	findRankings() {
 		return fetch(RANKINGS_URL).then(response => response.json());
+	}
+
+	findPlayersInEvent(eventId: number) {
+		return fetch(
+			EVENT_PLAYERS_URL.replace(":eventId", String(eventId))
+		).then(response => response.json());
 	}
 }

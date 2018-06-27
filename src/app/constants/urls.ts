@@ -10,3 +10,6 @@ export const REGISTER_URL = NODE_URL + "/api/register/";
 export const PLAYER_URL = NODE_URL + "/api/player/";
 export const RANKINGS_URL = NODE_URL + "/api/rankings/";
 export const SUBSCRIPTION_URL = NODE_URL + "/api/subscription/";
+export const EVENT_PLAYERS_URL = NODE_URL + "/api/event/:eventId/player/";
+export const EVENT_URL = NODE_URL + "/api/event/";
+export const EVENT_ROUNDS_URL = NODE_URL + "/api/event/:eventId/round";
