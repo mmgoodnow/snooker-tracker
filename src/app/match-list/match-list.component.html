@@ -3,10 +3,10 @@
 
 		<tbody>
 		<tr *ngFor="let match of _matches">
-			<td class="text-right">{{match.Player1.FirstName}} {{match.Player1.LastName}}</td>
+			<td class="text-right"><a routerLink="/player/{{match.Player1ID}}">{{match.Player1.FirstName}} {{match.Player1.LastName}}</a></td>
 			<td class="text-left">{{match.Score1}}</td>
 			<td class="text-right">{{match.Score2}}</td>
-			<td class="text-left">{{match.Player2.FirstName}} {{match.Player2.LastName}}</td>
+			<td class="text-left"><a routerLink="/player/{{match.Player2ID}}">{{match.Player2.FirstName}} {{match.Player2.LastName}}</a></td>
 		</tr>
 		</tbody>
 	</table>

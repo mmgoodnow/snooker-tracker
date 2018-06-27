@@ -2,6 +2,12 @@
 	<div class="container">
 		<a class="navbar-brand" routerLink="/home">SnookerTracker</a>
 		<div class="navbar-nav flex-grow-1"></div>
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item">
+				<a class="nav-link" routerLink="/search">Search</a>
+			</li>
+		</ul>
+		<div class="navbar-nav flex-grow-1"></div>
 		<ul *ngIf="username" class="navbar-nav mr-auto">
 			<li *ngIf="username == 'admin'" class="nav-item">
 				<a class="nav-link" routerLink="/admin">Administration</a>

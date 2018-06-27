@@ -1,10 +1,13 @@
 import { EVENT_PLAYERS_URL, PLAYER_URL, RANKINGS_URL } from "../constants/urls";
 import { Player } from "../models/player.model.client";
+import { Ranking } from "../models/ranking.model.client";
 
 export class PlayerServiceClient {
 	players: Promise<Player[]>;
+	rankings: Promise<Ranking[]>;
 	constructor() {
 		this.players = fetch(PLAYER_URL).then(response => response.json());
+		this.rankings = fetch(RANKINGS_URL).then(response => response.json());
 	}
 	findAllPlayers() {
 		return this.players;
@@ -15,7 +18,7 @@ export class PlayerServiceClient {
 	}
 
 	findRankings() {
-		return fetch(RANKINGS_URL).then(response => response.json());
+		return this.rankings;
 	}
 
 	findPlayersInEvent(eventId: number) {
