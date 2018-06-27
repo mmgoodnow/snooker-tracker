@@ -23,6 +23,7 @@ import { HomeComponent } from "./home/home.component";
 import { EventComponent } from "./event/event.component";
 import { PlayerListComponent } from "./player-list/player-list.component";
 import { MatchListComponent } from "./match-list/match-list.component";
+import { EventListComponent } from "./event-list/event-list.component";
 
 @NgModule({
 	declarations: [
@@ -41,6 +42,7 @@ import { MatchListComponent } from "./match-list/match-list.component";
 		EventComponent,
 		PlayerListComponent,
 		MatchListComponent,
+		EventListComponent,
 	],
 	imports: [BrowserModule, FormsModule, routing],
 	providers: [

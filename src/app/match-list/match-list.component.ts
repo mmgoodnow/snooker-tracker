@@ -8,14 +8,17 @@ import { PlayerServiceClient } from "../services/player.service.client";
 	styleUrls: ["./match-list.component.css"],
 })
 export class MatchListComponent implements OnInit {
-	constructor(private playerService: PlayerServiceClient) {}
+	constructor(private playerService: PlayerServiceClient) {
+		this.populateNames = this.populateNames.bind(this);
+	}
 
 	private _matches: Match[] = [];
 
 	@Input()
 	set matches(matches: Match[]) {
+		if (!matches) return;
+		matches.forEach(match => this.populateNames(match));
 		this._matches = matches;
-		this._matches.forEach(match => this.populateNames(match));
 	}
 
 	populateNames(match: Match) {

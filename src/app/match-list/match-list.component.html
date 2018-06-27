@@ -1,4 +1,4 @@
-<div class="list-group">
+<div *ngIf="_matches.length" class="list-group">
 	<table class="table">
 
 		<tbody>
@@ -11,3 +11,4 @@
 		</tbody>
 	</table>
 </div>
+<h5 *ngIf="!_matches.length" class="text-muted">No matches this season</h5>
