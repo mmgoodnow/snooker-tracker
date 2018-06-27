@@ -3,6 +3,8 @@ import { PlayerServiceClient } from "../services/player.service.client";
 import { ActivatedRoute, Route, Router } from "@angular/router";
 import { Player } from "../models/player.model.client";
 import { SubscriptionServiceClient } from "../services/subscription.service.client";
+import { MatchServiceClient } from "../services/match.service.client";
+import { Match } from "../models/match.model.client";
 
 @Component({
 	selector: "app-player-viewer",
@@ -12,8 +14,9 @@ import { SubscriptionServiceClient } from "../services/subscription.service.clie
 export class PlayerViewerComponent implements OnInit {
 	constructor(
 		private service: PlayerServiceClient,
-		private route: ActivatedRoute,
 		private subscriptionService: SubscriptionServiceClient,
+		private matchService: MatchServiceClient,
+		private route: ActivatedRoute,
 		private router: Router
 	) {
 		this.checkIfSubscribed = this.checkIfSubscribed.bind(this);
@@ -23,12 +26,14 @@ export class PlayerViewerComponent implements OnInit {
 
 	player: Player;
 	isSubscribed: boolean = false;
+	matches: Match[];
 
 	loadPlayer(id) {
 		this.service
 			.findPlayerById(id)
 			.then(player => (this.player = player))
 			.then(this.checkIfSubscribed);
+		this.loadMatches(id);
 	}
 
 	subscribe() {
@@ -49,6 +54,13 @@ export class PlayerViewerComponent implements OnInit {
 		this.subscriptionService
 			.isSubscribed(this.player.ID)
 			.then(isSubscribed => (this.isSubscribed = isSubscribed));
+	}
+
+	loadMatches(id: number) {
+		this.matchService
+			.findMatchesForPlayerInSeason(id)
+			.then(matches => (this.matches = matches))
+			.then(() => console.log(this.matches));
 	}
 
 	ngOnInit() {}

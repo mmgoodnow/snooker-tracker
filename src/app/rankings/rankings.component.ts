@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { PlayerServiceClient } from "../services/player.service.client";
+import { Ranking } from "../models/ranking.model.client";
 
 @Component({
 	selector: "app-rankings",
@@ -11,7 +12,7 @@ export class RankingsComponent implements OnInit {
 		this.populateName = this.populateName.bind(this);
 	}
 
-	rankings;
+	rankings: Ranking[];
 
 	retrieveResults() {
 		return this.service

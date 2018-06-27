@@ -10,7 +10,7 @@
 	<tbody>
 		<tr *ngFor="let ranking of rankings">
 			<td>{{ranking.Position}}</td>
-			<td>{{ranking.FirstName + " " + ranking.LastName}}</td>
+			<td><a routerLink="/player/{{ranking.PlayerID}}">{{ranking.FirstName + " " + ranking.LastName}}</a></td>
 			<td>{{ranking.Sum}}</td>
 		</tr>
 	</tbody>

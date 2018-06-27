@@ -4,7 +4,6 @@ import {
 	MATCH_URL,
 	PLAYER_MATCH_URL,
 } from "../constants/urls";
-import { Match } from "../models/match.model.client";
 
 export class MatchServiceClient {
 	constructor() {}
@@ -33,8 +32,10 @@ export class MatchServiceClient {
 		).then(response => response.json());
 	}
 
-	findMatchesForPlayerInSeason(playerId: number, season: string) {
-		return fetch(PLAYER_MATCH_URL.replace(":playerId", String(playerId)));
+	findMatchesForPlayerInSeason(playerId: number) {
+		return fetch(
+			PLAYER_MATCH_URL.replace(":playerId", String(playerId))
+		).then(response => response.json());
 	}
 
 	findOngoingMatches() {
