@@ -18,7 +18,7 @@ function findSubscriptions(userId) {
 }
 
 module.exports = {
-	subscribe: subscribe,
-	unsubscribe: unsubscribe,
+	follow: subscribe,
+	unfollow: unsubscribe,
 	findSubscriptions: findSubscriptions,
 };
