@@ -9,6 +9,7 @@ import { PlayerViewerComponent } from "./player-viewer/player-viewer.component";
 import { RankingsComponent } from "./rankings/rankings.component";
 import { HomeComponent } from "./home/home.component";
 import { EventComponent } from "./event/event.component";
+import { UserComponent } from "./user/user.component";
 const appRoutes: Routes = [
 	{
 		path: "",
@@ -55,7 +56,10 @@ const appRoutes: Routes = [
 		path: "event/:eventId",
 		component: EventComponent,
 	},
-
+	{
+		path: "user/:userId",
+		component: UserComponent,
+	},
 	{ path: "**", component: HomeComponent }, // last
 ];
 export const routing = RouterModule.forRoot(appRoutes);
